@@ -8,14 +8,10 @@ data = [
     {"name": "Beat It", "views": 16763888, "likes": 193000}
 ]
 
-for i in range(len(data)):
-    response = requests.put(BASE + "video/" + str(i), data[i])
-    print(response.json())
-
-input()
-response = requests.delete(BASE + "video/0")
-print(response)
-
-input()
+# for i in range(len(data)):
+#     response = requests.put(BASE + "video/" + str(i), data[i])
+#     print(response.json())
+#
+# input()
 response = requests.get(BASE + "video/2")
 print(response.json())
