@@ -77,8 +77,10 @@ class Video(Resource):
         return result
 
     def delete(self, video_id):
-        abort_if_video_id_doesnt_exist(video_id)
-        del videos[video_id]
+        result = VideoModel.query.filter_by(id=video_id).delete()
+        if not result:
+            abort(404, message="Could not find video with that id...")
+        db.session.commit()
         return '', 204
 
 
